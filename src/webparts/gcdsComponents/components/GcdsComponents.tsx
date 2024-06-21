@@ -1,43 +1,87 @@
+/* eslint-disable no-script-url */
 import * as React from 'react';
-import styles from './GcdsComponents.module.scss';
+//import styles from './GcdsComponents.module.scss';
+import '@cdssnc/gcds-components-react/gcds.css'
 import { IGcdsComponentsProps } from './IGcdsComponentsProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+import { GcdsButton, GcdsCard, GcdsPagination } from '@cdssnc/gcds-components-react';
 
-export default class GcdsComponents extends React.Component<IGcdsComponentsProps, {}> {
-  public render(): React.ReactElement<IGcdsComponentsProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
+const GcdsComponents : React.FunctionComponent<IGcdsComponentsProps> = (props) => {
+  
+  return (
+      <section>
 
-    return (
-      <section className={`${styles.gcdsComponents} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>Web part property value: <strong>{escape(description)}</strong></div>
+        <h2>GC DESIGN COMPONENTS</h2>
+
+        <h3> Card</h3>
+        <div style={{display: 'grid', gridTemplateColumns: '32% 32% 32%', columnGap: '2%'}}>
+          <div>
+          <GcdsCard
+            cardTitle="Card title link"
+            href="#"
+            tag="Tag"
+            description="Description or supporting text relating to the headline. Longer text will be truncated with ..."
+          >
+            <div slot="footer">footer information</div>
+          </GcdsCard>
+          </div>
+
+          <div>
+
+          <GcdsCard
+            cardTitle="Card 2"
+            href="#"
+            tag="Tag"
+            description="Description or supporting text relating to the headline. Longer text will be truncated with ..."
+          >
+            <div slot="footer">footer information</div>
+          </GcdsCard>
+          </div>
         </div>
-        <div>
-          <h3>Welcome to SharePoint Framework!</h3>
-          <p>
-            The SharePoint Framework (SPFx) is a extensibility model for Microsoft Viva, Microsoft Teams and SharePoint. It&#39;s the easiest way to extend Microsoft 365 with automatic Single Sign On, automatic hosting and industry standard tooling.
-          </p>
-          <h4>Learn more about SPFx development:</h4>
-          <ul className={styles.links}>
-            <li><a href="https://aka.ms/spfx" target="_blank" rel="noreferrer">SharePoint Framework Overview</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank" rel="noreferrer">Use Microsoft Graph in your solution</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank" rel="noreferrer">Build for Microsoft Teams using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank" rel="noreferrer">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank" rel="noreferrer">Publish SharePoint Framework applications to the marketplace</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
-            <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
-          </ul>
+
+        <h3>Pagination</h3>
+        <GcdsPagination
+          label="Pagination"
+          currentPage={9}
+          totalPages={15}
+          previousHref={'#previous'}
+          nextLabel={'javascript:void(0)'}
+          nextHref={'www.google.ca'}
+          display={'list'}
+          lang={'en'}
+        />
+
+        <h3>Buttons</h3>
+        <div style={{display: 'grid', gridTemplateColumns: '32% 32% 32%', columnGap: '2%'}}>
+          <div style={{marginBottom: '10px'}}>
+            <GcdsButton
+              buttonId={'1'}
+              buttonRole={'primary'}
+            >
+              Primary Button label
+            </GcdsButton>
+          </div>
+          <div style={{marginBottom: '10px'}}> 
+            <GcdsButton
+              buttonId={'2'}
+              buttonRole={'secondary'}
+            >
+              Secondary Button label
+            </GcdsButton>
+          </div>
+          <div style={{marginBottom: '10px'}}>
+            <GcdsButton
+              buttonId={'3'}
+              buttonRole={'danger'}
+            >
+              Danger Button label
+            </GcdsButton>
+          </div>
         </div>
+
+
       </section>
-    );
-  }
+    
+  );
 }
+
+export default GcdsComponents;
