@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "gcds-components-client-side-solution",
+    "id": "e8392478-0517-4b52-88a4-f576d2451bf3",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.17.4"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "gcdsComponents description"
+      },
+      "longDescription": {
+        "default": "gcdsComponents description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "gcds-components Feature",
+        "description": "The feature that activates elements of the gcds-components solution.",
+        "id": "b0a27b32-2dac-4a04-97ba-3705b2d6116f",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/gcds-components.sppkg"
+  }
+}
